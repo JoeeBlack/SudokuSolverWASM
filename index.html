@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sudoku Solver — WebAssembly</title>
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./app.js"></script>
+  <script defer src="./sudoku-wasm.js"></script>
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <h1 class="title">Sudoku</h1>
+      <p class="subtitle">Wpisz cyfry 1–9 lub wklej ciąg 81 znaków.</p>
+    </header>
+
+    <section class="board-section" aria-label="Plansza Sudoku">
+      <div
+        id="board"
+        class="board"
+        role="grid"
+        aria-label="Plansza Sudoku 9 na 9"
+      ></div>
+    </section>
+
+    <div class="controls" role="group" aria-label="Akcje planszy">
+      <button id="solve-btn" class="btn btn-primary" type="button" disabled>
+        Rozwiąż
+      </button>
+      <button id="clear-btn" class="btn btn-secondary" type="button">
+        Wyczyść
+      </button>
+      <button id="undo-btn" class="btn btn-secondary" type="button" disabled>
+        Cofnij
+      </button>
+    </div>
+
+    <p
+      id="status"
+      class="status"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    >Ładowanie modułu WebAssembly…</p>
+
+    <footer class="legend" aria-label="Legenda i wskazówki">
+      <div class="legend-items">
+        <span class="legend-item">
+          <span class="legend-swatch legend-swatch-user" aria-hidden="true">5</span>
+          Cyfra użytkownika
+        </span>
+        <span class="legend-item">
+          <span class="legend-swatch legend-swatch-solver" aria-hidden="true">5</span>
+          Cyfra solvera
+        </span>
+      </div>
+      <p class="hint">
+        Wklejenie 81 znaków (1–9, 0 lub .) w dowolne pole uzupełni całą planszę.
+      </p>
+    </footer>
+  </main>
+</body>
+</html>
